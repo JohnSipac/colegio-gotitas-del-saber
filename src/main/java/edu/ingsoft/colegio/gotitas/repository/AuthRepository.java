@@ -17,7 +17,7 @@ public class AuthRepository {
 
     // Divide y vencerás: un metodo debe ser engargado de realizar unicamente una tarea específica
     // el nombre de ese método debe ser modular, directo
-    public LoginResponse findUserByEmail(LoginRequest loginRequest) throws Exception {
+    public LoginResponse findUserByEmail(LoginRequest loginRequest){
         String sql = "select d.nombre, d.apellido, u.contrasena_hash from usuarios as u right join docentes as d on d.id_docente = u.id_docente where email = ?;";
 
         try (PreparedStatement pstm = DataBaseConnection.getConnectionDataBase().prepareStatement(sql)) {
