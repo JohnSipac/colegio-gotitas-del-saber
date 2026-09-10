@@ -8,7 +8,6 @@ import javafx.scene.control.TextField;
 import main.java.edu.ingsoft.colegio.gotitas.config.DataBaseConnection;
 import main.java.edu.ingsoft.colegio.gotitas.service.AuthService;
 import main.java.edu.ingsoft.colegio.gotitas.util.SceneManager;
-import java.sql.SQLException;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import main.java.edu.ingsoft.colegio.gotitas.dto.request.LoginRequest;
@@ -35,16 +34,6 @@ public class LoginController implements Initializable {
 
     }
 
-    public void handleTestDataBaseConnection() throws Exception {
-        try {
-            DataBaseConnection.getConnectionDataBase();
-            System.out.println("Conectado");
-
-        } catch (Exception e) {
-            System.out.println("error al conectar: " + e.getMessage());
-        }
-    }
-
     @FXML
     public void handleLogin() throws Exception {
         if (txtFieldEmail.getText().isEmpty() || txtFieldPass.getText().isEmpty()) {
@@ -53,15 +42,10 @@ public class LoginController implements Initializable {
             try {
                 LoginResponse responseService = authService.login(new LoginRequest(txtFieldEmail.getText(), txtFieldPass.getText()));
                 
-                // Actualizado para usar getUsername() y getEmail() en lugar de nombre/apellido
-                LoginResponse userLogged = new LoginResponse(responseService.getUsername(), responseService.getEmail(), responseService.getContrasena_hash());
                 
-                sceneManager.showInfoAlert(
-                        "LOGIN EXITOSO",
-                        "Bienvenido",
-                        "Hola, " + userLogged.getUsername(),
-                        AlertType.INFORMATION
-                );
+                LoginResponse usuarioLog = new LoginResponse(responseService.getUsername(), responseService.getEmail(), responseService.getContrasena_hash());
+                
+               sceneManager.showMainMenu(usuarioLog);
 
             } catch (RuntimeException e) {
                 sceneManager.showInfoAlert("Datos incorrectos", "Revisa tu información", "Intenta de nuevo", Alert.AlertType.INFORMATION);
