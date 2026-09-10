@@ -45,19 +45,32 @@ public class LoginController implements Initializable {
         }
     }
 
+    @FXML
     public void handleLogin() throws Exception {
         if (txtFieldEmail.getText().isEmpty() || txtFieldPass.getText().isEmpty()) {
-            sceneManager.showInfoAlert("Te faltan campos", "Revisar información", "Uno o más campos están vacíos... ¯|_(ツ)_/¯", AlertType.WARNING);
+            sceneManager.showInfoAlert("Te faltan campos", "Revisar información", "Uno o más campos están vacíos... ¯\\_(ツ)_/¯", AlertType.WARNING);
         } else {
             try {
                 LoginResponse responseService = authService.login(new LoginRequest(txtFieldEmail.getText(), txtFieldPass.getText()));
-                LoginResponse userLogged = new LoginResponse(responseService.getNombre(), responseService.getApellido());
-                sceneManager.showDashBoardView();
-            }catch (RuntimeException e){
+                
+                // Actualizado para usar getUsername() y getEmail() en lugar de nombre/apellido
+                LoginResponse userLogged = new LoginResponse(responseService.getUsername(), responseService.getEmail(), responseService.getContrasena_hash());
+                
+                sceneManager.showInfoAlert(
+                        "LOGIN EXITOSO",
+                        "Bienvenido",
+                        "Hola, " + userLogged.getUsername(),
+                        AlertType.INFORMATION
+                );
+
+            } catch (RuntimeException e) {
                 sceneManager.showInfoAlert("Datos incorrectos", "Revisa tu información", "Intenta de nuevo", Alert.AlertType.INFORMATION);
             }
-
         }
+    }
+    
+    public void handleRegistro() throws Exception{
+        sceneManager.showRegistroView();
     }
 }
 

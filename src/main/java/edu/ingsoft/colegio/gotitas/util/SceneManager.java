@@ -11,9 +11,10 @@ import main.java.edu.ingsoft.colegio.gotitas.repository.AuthRepository;
 import main.java.edu.ingsoft.colegio.gotitas.service.AuthService;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import main.java.edu.ingsoft.colegio.gotitas.controller.DashboardController;
-import main.java.edu.ingsoft.colegio.gotitas.repository.EstudianteRepository;
-import main.java.edu.ingsoft.colegio.gotitas.service.DashBoardService;
+import main.java.edu.ingsoft.colegio.gotitas.controller.RegistroController;
+import main.java.edu.ingsoft.colegio.gotitas.repository.RegistroRepository;
+import main.java.edu.ingsoft.colegio.gotitas.service.RegistroService;
+
 
 public class SceneManager {
 
@@ -50,15 +51,16 @@ public class SceneManager {
 
     }
     
-    public void showDashBoardView() throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(FXML_PATH + "dashboard-view.fxml"));
+    
+    public void showRegistroView() throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(FXML_PATH + "registro-view.fxml"));
 
-        loader.setControllerFactory(clazz -> {
-                    if (clazz == DashboardController.class) {
-                        EstudianteRepository dashBoardRepository = new EstudianteRepository();
-                        DashBoardService dashboardService = new DashBoardService(dashBoardRepository);
-                        
-                        return new DashboardController(dashboardService, this);
+        loader.setControllerFactory(
+                clazz -> {
+                    if (clazz == RegistroController.class) {
+                        RegistroRepository registroRepository = new RegistroRepository();
+                        RegistroService registroService = new RegistroService(registroRepository);
+                        return new RegistroController(registroService, this);
                     }
                     try {
                         return clazz.getDeclaredConstructor().newInstance();
@@ -69,14 +71,13 @@ public class SceneManager {
         );
 
         Parent root = loader.load();
-        Scene scene = new Scene(root, 900, 510);
+        Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.centerOnScreen();
         primaryStage.show();
 
     }
     
-     //ventana modal para mostrar alertas
     public void showInfoAlert(String title, String head, String content, AlertType type) {
     Alert alert = new Alert(type);
     alert.initOwner(this.primaryStage);
