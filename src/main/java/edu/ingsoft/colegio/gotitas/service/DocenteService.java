@@ -5,9 +5,13 @@ import main.java.edu.ingsoft.colegio.gotitas.repository.DocenteRepository;
 
 public class DocenteService {
 
-    private DocenteRepository docenteRepository = new DocenteRepository();
+    private DocenteRepository docenteRepository;
 
-    public boolean registrarDocente(Docente docente) {
+    public DocenteService(DocenteRepository docenteRepository) {
+        this.docenteRepository = docenteRepository;
+    }
+
+    public boolean CreateDocente(Docente docente) {
         if (docente.getNombre() == null || docente.getNombre().trim().isEmpty()
                 || docente.getApellido() == null || docente.getApellido().trim().isEmpty()) {
             System.out.println("Llenar todos los campos");
@@ -23,11 +27,11 @@ public class DocenteService {
     }
 
     public boolean updateDocente(Docente docente) {
-    return docenteRepository.updateDocente(docente);
-    
+        return docenteRepository.updateDocente(docente);
+
     }
 
-    public boolean eliminarDocente(Docente docente) {
+    public boolean deleteDocente(Docente docente) {
         return docenteRepository.deleteDocente(docente);
     }
 }
