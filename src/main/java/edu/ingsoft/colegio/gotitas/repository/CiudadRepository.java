@@ -8,8 +8,8 @@ import main.java.edu.ingsoft.colegio.gotitas.config.DataBaseConnection;
 import main.java.edu.ingsoft.colegio.gotitas.model.Ciudad;
 
 public class CiudadRepository {
-    
-    ObservableList<Ciudad> listaCiudades = FXCollections.observableArrayList();
+
+    private ObservableList<Ciudad> listaCiudades = FXCollections.observableArrayList();
 
     public ObservableList<Ciudad> findAll() throws Exception {
         String sql = "select * from ciudades;";
@@ -31,5 +31,41 @@ public class CiudadRepository {
             return null;
         }
     }
+
+    public String findIdByName(String ciudadName) throws Exception {
+        String sql = "select id_ciudad from ciudades where nombre_ciudad = ?;";
+
+        try (PreparedStatement pstm = DataBaseConnection.getConnectionDataBase().prepareStatement(sql)) {
+            pstm.setString(1, ciudadName);
+            ResultSet rs = pstm.executeQuery();
+
+            if (rs.next()) {
+                return rs.getString("id_ciudad");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error al encontrar ID: " + e.getMessage());
+        }
+        return null;
+
+    }
     
+    public String findNameByID(String ciudadId) throws Exception {
+        String sql = "select nombre_ciudad from ciudades where id_ciudad = ?;";
+
+        try (PreparedStatement pstm = DataBaseConnection.getConnectionDataBase().prepareStatement(sql)) {
+            pstm.setString(1, ciudadId);
+            ResultSet rs = pstm.executeQuery();
+
+            if (rs.next()) {
+                return rs.getString("nombre_ciudad");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error al encontrar nombre: " + e.getMessage());
+        }
+        return null;
+
+    }
+
 }

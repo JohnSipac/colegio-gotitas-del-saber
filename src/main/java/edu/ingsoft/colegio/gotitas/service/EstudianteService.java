@@ -1,7 +1,10 @@
 package main.java.edu.ingsoft.colegio.gotitas.service;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import main.java.edu.ingsoft.colegio.gotitas.config.DataBaseConnection;
 import main.java.edu.ingsoft.colegio.gotitas.model.Ciudad;
 import main.java.edu.ingsoft.colegio.gotitas.model.Estudiante;
 import main.java.edu.ingsoft.colegio.gotitas.model.Pais;
@@ -61,5 +64,16 @@ public class EstudianteService {
     public ObservableList<Ciudad> findAllCiudades() throws Exception {
        listaCiudades = ciudadRepository.findAll();
        return listaCiudades;
+    }
+    
+    public String findIdByName(String ciudadName) throws Exception {
+         String idCiudad = ciudadRepository.findIdByName(ciudadName);
+       return idCiudad;
+
+    }
+    
+    public String findNameById(String ciudadId) throws Exception {
+        String ciudadName = ciudadRepository.findIdByName(ciudadId);
+       return ciudadName;
     }
 }

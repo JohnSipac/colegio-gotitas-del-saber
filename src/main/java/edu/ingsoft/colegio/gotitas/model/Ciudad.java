@@ -10,7 +10,7 @@ public class Ciudad {
         this.idPais = idPais;
         this.nombreCiudad = nombreCiudad;
     }
-
+    
     public String getIdCiudad() {
         return idCiudad;
     }

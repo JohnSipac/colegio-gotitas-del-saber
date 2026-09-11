@@ -10,8 +10,8 @@ import java.sql.Date;
 
 public class EstudianteRepository {
 
-    ObservableList<Estudiante> listaEstudiantes = FXCollections.observableArrayList();
-    Date sqlDate;
+    private ObservableList<Estudiante> listaEstudiantes = FXCollections.observableArrayList();
+    private Date sqlDate;
 
     public ObservableList<Estudiante> findAll() throws Exception {
         String sql = "select * from estudiantes;";
