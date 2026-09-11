@@ -18,7 +18,7 @@ public class DocenteController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        confiTabla();
     }
 
     private SceneManager stage;
@@ -120,16 +120,16 @@ public class DocenteController implements Initializable {
         Docente docenteSeleccionado = tvDocentes.getSelectionModel().getSelectedItem();
 
         if (docenteSeleccionado == null) {
-            stage.showInfoAlert("Error Info","Advertencia", "Debe seleccionar un docente de la tabla para eliminar.", Alert.AlertType.WARNING);
+            stage.showInfoAlert("Error Info", "Advertencia", "Debe seleccionar un docente de la tabla para eliminar.", Alert.AlertType.WARNING);
             return;
         }
 
         if (docenteService.deleteDocente(docenteSeleccionado)) {
-            stage.showInfoAlert("Que exitoso","Éxito", "Docente eliminado correctamente.", Alert.AlertType.INFORMATION);
+            stage.showInfoAlert("Que exitoso", "Éxito", "Docente eliminado correctamente.", Alert.AlertType.INFORMATION);
             limpiarCampos();
             // TODO: Llamar a tu método para recargar la lista de la tabla
         } else {
-            stage.showInfoAlert("Error Info","Error", "No se pudo eliminar el docente.", Alert.AlertType.ERROR);
+            stage.showInfoAlert("Error Info", "Error", "No se pudo eliminar el docente.", Alert.AlertType.ERROR);
         }
     }
 
