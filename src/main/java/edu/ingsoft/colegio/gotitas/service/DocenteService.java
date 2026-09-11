@@ -11,7 +11,7 @@ public class DocenteService {
         this.docenteRepository = docenteRepository;
     }
 
-    public boolean CreateDocente(Docente docente) {
+    public boolean createDocente(Docente docente) {
         if (docente.getNombre() == null || docente.getNombre().trim().isEmpty()
                 || docente.getApellido() == null || docente.getApellido().trim().isEmpty()) {
             System.out.println("Llenar todos los campos");
