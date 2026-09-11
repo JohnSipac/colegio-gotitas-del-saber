@@ -10,7 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 
@@ -22,21 +22,21 @@
 
         <AnchorPane prefHeight="550.0" prefWidth="320.0" styleClass="green-panel" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Label alignment="CENTER" layoutX="28.0" layoutY="60.0" prefHeight="50.0" prefWidth="264.0" styleClass="brand-title" text="REGISTRATE!" />
-
-                <StackPane layoutX="70.0" layoutY="150.0" prefHeight="180.0" prefWidth="180.0">
-                    <children>
-                        <Circle fill="#FFFFFF" radius="90.0" stroke="#1F3316" strokeType="INSIDE" strokeWidth="2.0" />
-                        <ImageView fitHeight="176.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="false">
-                            <image>
-                                <Image url="@../images/zarate.png" />
-                            </image>
-                            <clip>
-                                <Circle centerX="88.0" centerY="88.0" radius="88.0" />
-                            </clip>
-                        </ImageView>
-                    </children>
-                </StackPane>
+            <Pane layoutX="-4.0" prefHeight="550.0" prefWidth="270.0">
+               <children>
+                  <Circle fill="#FFFFFF" layoutX="135.0" layoutY="283.0" radius="90.0" stroke="#1F3316" strokeType="INSIDE" strokeWidth="2.0" />
+                  <ImageView fitHeight="176.0" fitWidth="176.0" layoutX="47.0" layoutY="195.0" pickOnBounds="true" preserveRatio="false">
+                     <image>
+                        <Image url="@../images/perfil-usuario.png" />
+                     </image>
+                     <clip>
+                        <Circle centerX="88.0" centerY="88.0" radius="88.0" />
+                     </clip>
+                  </ImageView>
+                      <Label alignment="CENTER" layoutX="-18.0" layoutY="39.0" prefHeight="70.0" prefWidth="307.0" styleClass="brand-title" text="AÚN NO ERES PARTE DE NOSOTROS?" />
+                  <Label alignment="CENTER" layoutX="-18.0" layoutY="100.0" prefHeight="70.0" prefWidth="307.0" styleClass="brand-title" text="REGISTRATE" />
+               </children>
+            </Pane>
             </children>
         </AnchorPane>
 

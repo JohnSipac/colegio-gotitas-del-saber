@@ -29,7 +29,7 @@
                                 <Circle fill="#FFFFFF" radius="44.0" stroke="#1F3316" strokeType="INSIDE" strokeWidth="2.0" />
                                 <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="false">
                                     <image>
-                                        <Image url="@/main/resources/images/zarate.png" />
+                                        <Image url="@../images/perfil-usuario.png" />
                                     </image>
                                     <clip>
                                         <Circle centerX="40.0" centerY="40.0" radius="40.0" />
@@ -55,7 +55,7 @@
                             <graphic>
                                 <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@/main/resources/images/zarate.png" />
+                                        <Image url="@../images/user.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -65,7 +65,7 @@
                             <graphic>
                                 <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@/main/resources/images/zarate.png" />
+                                        <Image url="@../images/config.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -77,7 +77,7 @@
                             <graphic>
                                 <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@/main/resources/images/zarate.png" />
+                                        <Image url="@../images/back.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -96,7 +96,46 @@
                     </padding>
                     <children>
                         <Label styleClass="dashboard-text" text="PANEL DE CONTROL - SELECCIONA UNA OPCIÓN" textAlignment="CENTER" wrapText="true" />
-                        <FlowPane hgap="20.0" prefWrapLength="500.0" vgap="20.0" />
+                        <FlowPane hgap="20.0" prefHeight="210.0" prefWidth="508.0" prefWrapLength="500.0" vgap="20.0">
+                            <children>
+                        <Button alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="95.0" prefWidth="109.0" text="MATRICULAS">
+                           <graphic>
+                              <ImageView fitHeight="59.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/matriculas.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="95.0" prefWidth="109.0" text="ESTUDIANTES">
+                           <graphic>
+                              <ImageView fitHeight="59.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/estudiambres.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="95.0" prefWidth="109.0" text="DOCENTES">
+                           <graphic>
+                              <ImageView fitHeight="59.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/teacher.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                                <Button alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="95.0" prefWidth="181.0" text="ASIGNACION DE CURSOS">
+                                    <graphic>
+                                        <ImageView fitHeight="62.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../images/cursos.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </FlowPane>
                     </children>
                 </VBox>
             </center>

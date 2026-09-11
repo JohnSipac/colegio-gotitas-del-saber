@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import main.java.edu.ingsoft.colegio.gotitas.dto.response.LoginResponse;
-import main.java.edu.ingsoft.colegio.gotitas.model.Usuario;
 import main.java.edu.ingsoft.colegio.gotitas.util.SceneManager;
 
 public class MainMenuController implements Initializable {
