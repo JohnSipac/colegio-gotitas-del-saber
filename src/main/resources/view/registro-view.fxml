@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="800.0" style="-fx-background-color: #F3F4F1;" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.edu.ingsoft.colegio.gotitas.controller.RegistroController">
+    <stylesheets>
+        <URL value="@/main/resources/css/styles.css" />
+    </stylesheets>
+    <children>
+
+        <AnchorPane prefHeight="550.0" prefWidth="320.0" styleClass="green-panel" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+            <Pane layoutX="-4.0" prefHeight="550.0" prefWidth="270.0">
+               <children>
+                  <Circle fill="#FFFFFF" layoutX="135.0" layoutY="283.0" radius="90.0" stroke="#1F3316" strokeType="INSIDE" strokeWidth="2.0" />
+                  <ImageView fitHeight="176.0" fitWidth="176.0" layoutX="47.0" layoutY="195.0" pickOnBounds="true" preserveRatio="false">
+                     <image>
+                        <Image url="@../images/perfil-usuario.png" />
+                     </image>
+                     <clip>
+                        <Circle centerX="88.0" centerY="88.0" radius="88.0" />
+                     </clip>
+                  </ImageView>
+                      <Label alignment="CENTER" layoutX="-18.0" layoutY="39.0" prefHeight="70.0" prefWidth="307.0" styleClass="brand-title" text="AÚN NO ERES PARTE DE NOSOTROS?" />
+                  <Label alignment="CENTER" layoutX="-18.0" layoutY="100.0" prefHeight="70.0" prefWidth="307.0" styleClass="brand-title" text="REGISTRATE" />
+               </children>
+            </Pane>
+            </children>
+        </AnchorPane>
+
+        <VBox layoutX="270.0" layoutY="126.0" prefHeight="310.0" prefWidth="480.0" spacing="6.0" styleClass="login-card" AnchorPane.bottomAnchor="114.0" AnchorPane.topAnchor="126.0">
+            <children>
+                <Label styleClass="form-title" text="¡ CREA TU CUENTA !" />
+
+                <Label styleClass="input-label" text="NOMBRE DE USUARIO" />
+                <TextField fx:id="txtUsername" styleClass="custom-input" />
+
+                <Label styleClass="input-label" text="EMAIL" />
+                <TextField fx:id="txtEmail" styleClass="custom-input" />
+
+                <Label styleClass="input-label" text="CONTRASEÑA" />
+                <PasswordField fx:id="txtPassword" styleClass="custom-input" />
+
+                <Label styleClass="input-label" text="CONFIRMAR CONTRASEÑA" />
+                <PasswordField fx:id="txtConfirmPassword" styleClass="custom-input" />
+
+                <HBox alignment="CENTER_RIGHT" prefHeight="50.0" spacing="12.0">
+                    <children>
+                  <Button mnemonicParsing="false" onAction="#saveRegistro" text="GUARDAR" />
+                        <Button mnemonicParsing="false" onAction="#handlebackToLogin" styleClass="btn-secondary" text="REGRESAR" />
+                    </children>
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

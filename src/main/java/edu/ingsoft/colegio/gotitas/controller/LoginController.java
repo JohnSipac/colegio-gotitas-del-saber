@@ -8,7 +8,6 @@ import javafx.scene.control.TextField;
 import main.java.edu.ingsoft.colegio.gotitas.config.DataBaseConnection;
 import main.java.edu.ingsoft.colegio.gotitas.service.AuthService;
 import main.java.edu.ingsoft.colegio.gotitas.util.SceneManager;
-import java.sql.SQLException;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import main.java.edu.ingsoft.colegio.gotitas.dto.request.LoginRequest;
@@ -35,29 +34,27 @@ public class LoginController implements Initializable {
 
     }
 
-    public void handleTestDataBaseConnection() throws Exception {
-        try {
-            DataBaseConnection.getConnectionDataBase();
-            System.out.println("Conectado");
-
-        } catch (Exception e) {
-            System.out.println("error al conectar: " + e.getMessage());
-        }
-    }
-
+    @FXML
     public void handleLogin() throws Exception {
         if (txtFieldEmail.getText().isEmpty() || txtFieldPass.getText().isEmpty()) {
-            sceneManager.showInfoAlert("Te faltan campos", "Revisar información", "Uno o más campos están vacíos... ¯|_(ツ)_/¯", AlertType.WARNING);
+            sceneManager.showInfoAlert("Te faltan campos", "Revisar información", "Uno o más campos están vacíos... ¯\\_(ツ)_/¯", AlertType.WARNING);
         } else {
             try {
                 LoginResponse responseService = authService.login(new LoginRequest(txtFieldEmail.getText(), txtFieldPass.getText()));
-                LoginResponse userLogged = new LoginResponse(responseService.getNombre(), responseService.getApellido());
-                sceneManager.showDashBoardView();
-            }catch (RuntimeException e){
+                
+                
+                LoginResponse usuarioLog = new LoginResponse(responseService.getUsername(), responseService.getEmail(), responseService.getContrasena_hash());
+                
+               sceneManager.showMainMenu(usuarioLog);
+
+            } catch (RuntimeException e) {
                 sceneManager.showInfoAlert("Datos incorrectos", "Revisa tu información", "Intenta de nuevo", Alert.AlertType.INFORMATION);
             }
-
         }
+    }
+    
+    public void handleRegistro() throws Exception{
+        sceneManager.showRegistroView();
     }
 }
 
